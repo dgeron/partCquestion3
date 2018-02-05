@@ -1,0 +1,133 @@
+CREATE (Kritikoi:Groups {title:'Κρητικοί', groupcreationdate:'01/01/2015', teamscore:3000})
+CREATE (Peloponisioi:Groups {title:'Πελοπονήσιοι', groupcreationdate:'01/01/2015', teamscore:2990})
+CREATE (Papadopouloi:Household {title:'Παπαδόπουλοι', houseconstructionyear:1977, appliancesowned:35, type: 'Μονοκατοικία', numberofrooms:4, householdscore:1234})
+CREATE (KostasPapadopoulos:Person {name:'Κώστας Παπαδόπουλος', born:1970, memberscore:350})
+CREATE (MariaGontikaki:Person {name:'Μαρία Γοντικάκη', born:1975, memberscore:100})
+CREATE (NikosPapadopoulos:Person {name:'Νίκος Παπαδόπουλος', born:2004, memberscore:300})
+CREATE (AlexandraPapadopoulou:Person {name:'Αλεξάνδρα Παπαδοπούλου', born:2006, memberscore:200})
+CREATE (KonstantinaPapadopoulou:Person {name:'Κωνσταντίνα Παπαδοπούλου', born:2010, memberscore:250})
+CREATE
+	(KostasPapadopoulos)-[:MEMBER_OF {roles:['Πατέρας']}]->(Papadopouloi),
+	(MariaGontikaki)-[:MEMBER_OF {roles:['Μητέρα']}]->(Papadopouloi),
+	(NikosPapadopoulos)-[:MEMBER_OF {roles:['Γιός']}]->(Papadopouloi),
+	(AlexandraPapadopoulou)-[:MEMBER_OF {roles:['Κόρη']}]->(Papadopouloi),
+	(KonstantinaPapadopoulou)-[:MEMBER_OF {roles:['Κόρη']}]->(Papadopouloi)
+	
+CREATE (PapadopoulosFridge:Appliances {id:'p1', title:'Ψυγείο', manufacturer:'Hotpoint', model:'RLA50P'})	
+CREATE (PapadopoulosFridge)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosFreezer1:Appliances {id:'p2', title:'Kαταψύκτης', manufacturer:'Beko', model:'CF393APW'})
+CREATE (PapadopoulosFreezer1)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosFreezer2:Appliances {id:'p3', title:'Kαταψύκτης', manufacturer:'Unknown', model:'Unknown'})
+CREATE (PapadopoulosFreezer2)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosWasherDryer:Appliances {id:'p4', title:'Πλυντήριο Στεγνωτήριο', manufacturer:'Creda', model:'T522VW'})
+CREATE (PapadopoulosWasherDryer)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosWashingMachine:Appliances {id:'p5', title:'Πλυντήριο ρούχων', manufacturer:'Beko', model:'WMC6140'})	
+CREATE (PapadopoulosWashingMachine)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosDishWasher:Appliances {id:'p6', title:'Πλυντήριο πιάτων', manufacturer:'Bosch', model:'Unknown'})
+CREATE (PapadopoulosDishWasher)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosComputer:Appliances {id:'p7', title:'Υπολογιστής', manufacturer:'Lenovo', model:'H520s'})
+CREATE (PapadopoulosComputer)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosTelevision:Appliances {id:'p8', title:'Σετ Τηλεόρασης', manufacturer:'Toshiba', model:'32BL502b'})
+CREATE (PapadopoulosTelevision)-[:BELONGS_TO]->(Papadopouloi)
+CREATE (PapadopoulosElectricHeater:Appliances {id:'p9', title:'Ηλεκτική θερμάστρα', manufacturer:'GLEN', model:'2172'})
+CREATE (PapadopoulosElectricHeater)-[:BELONGS_TO]->(Papadopouloi)
+
+CREATE (Brontakides:Household {title:'Βροντάκηδες', houseconstructionyear:2005, appliancesowned:49, type: 'Μονοκατοικία', numberofrooms:4, householdscore:1434})
+CREATE (ManoliosBrontakis:Person {name:'Μανωλιός Βροντάκης', born:1970, memberscore:350})
+CREATE (MeropiAslanidou:Person {name:'Μερόπη Ασλανίδου', born:1975, memberscore:100})
+CREATE (DimitrisBrontakis:Person {name:'Δημήτρης Βροντάκης', born:2004, memberscore:300})
+CREATE (AristotelisBrontakis:Person {name:'Αριστοτέλης Βροντάκης', born:2006, memberscore:200})
+CREATE (TheanoBrontaki:Person {name:'Θεανώ Βροντάκη', born:2010, memberscore:250})
+CREATE
+	(ManoliosBrontakis)-[:MEMBER_OF {roles:['Πατέρας']}]->(Brontakides),
+	(MeropiAslanidou)-[:MEMBER_OF {roles:['Μητέρα']}]->(Brontakides),
+	(DimitrisBrontakis)-[:MEMBER_OF {roles:['Γιός']}]->(Brontakides),
+	(AristotelisBrontakis)-[:MEMBER_OF {roles:['Γιός']}]->(Brontakides),
+	(TheanoBrontaki)-[:MEMBER_OF {roles:['Κόρη']}]->(Brontakides)
+	
+CREATE (BrontakidesFreezer:Appliances {id:'b1', title:'Καταψύκτης', manufacturer:'Whirlpool', model:'CV128W'})	
+CREATE (BrontakidesFreezer)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakidesWashingMachine:Appliances {id:'b2', title:'Πλυντήριο ρούχων', manufacturer:'Bosch', model:'Classixx 1200 Express'})	
+CREATE (BrontakidesWashingMachine)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakidesDishWasher:Appliances {id:'b3', title:'Πλυντήριο πιάτων', manufacturer:'Neff', model:'Άγνωστο'})
+CREATE (BrontakidesDishWasher)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakisMGYComputer:Appliances {id:'b4', title:'MGY Υπολογιστής', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (BrontakisMGYComputer)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakidesTelevision:Appliances {id:'b5', title:'Τηλεόραση-Δορυφορική', manufacturer:'Samsung', model:'UE55F6500SB'})
+CREATE (BrontakidesTelevision)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakidesMicrowave:Appliances {id:'b6', title:'Φούρνος μικροκυμάτων', manufacturer:'Neff', model:'H5642N0GB/02'})
+CREATE (BrontakidesMicrowave)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakidesKettle:Appliances {id:'b7', title:'Βραστήρας', manufacturer:'ASDA', model:'GPK101W'})
+CREATE (BrontakidesKettle)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakidesToaster:Appliances {id:'b8', title:'Τοστιέρα', manufacturer:'Breville', model:'PT15'})
+CREATE (BrontakidesToaster)-[:BELONGS_TO]->(Brontakides)
+CREATE (BrontakisPGMComputer:Appliances {id:'b9', title:'PGM Υπολογιστής', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (BrontakisPGMComputer)-[:BELONGS_TO]->(Brontakides)
+
+CREATE (Fourtounakides:Household {title:'Φουρτουνάκηδες', houseconstructionyear:1974, appliancesowned:34, type: 'Μονοκατοικία', numberofrooms:3, householdscore:1555})
+CREATE (MixalisFourtounakis:Person {name:'Μιχάλης Φουρτουνάκης', born:1969, memberscore:450})
+CREATE (GeorgiaMauromixalaki:Person {name:'Γεωργία Μαυρομιχαλάκη', born:1973, memberscore:400})
+CREATE (PinelopiFourtounaki:Person {name:'Πηνελόπη Φουρτουνάκη', born:2000, memberscore:300})
+CREATE (StefanosFourtounakis:Person {name:'Στέφανος Φουρτουνάκης', born:2005, memberscore:200})
+CREATE
+	(MixalisFourtounakis)-[:MEMBER_OF {roles:['Πατέρας']}]->(Fourtounakides),
+	(GeorgiaMauromixalaki)-[:MEMBER_OF {roles:['Μητέρα']}]->(Fourtounakides),
+	(PinelopiFourtounaki)-[:MEMBER_OF {roles:['Κόρη']}]->(Fourtounakides),
+	(StefanosFourtounakis)-[:MEMBER_OF {roles:['Γιός']}]->(Fourtounakides)
+	
+CREATE (FourtounakidesFridge:Appliances {id:'f1', title:'Ψυγείο', manufacturer:'LEC', model:'R.403W'})	
+CREATE (FourtounakidesFridge)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesFreezer:Appliances {id:'f2', title:'Καταψύκτης', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesFreezer)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesFridgeFreezer:Appliances {id:'f3', title:'Ψυγειοκαταψύκτης', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesFridgeFreezer)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesWasherDryer:Appliances {id:'f4', title:'Πλυντήριο Στεγνωτήριο', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesWasherDryer)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesWashingMachine:Appliances {id:'f5', title:'Πλυντήριο ρούχων', manufacturer:'Άγνωστος', model:'Άγνωστο'})	
+CREATE (FourtounakidesWashingMachine)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesDishWasher:Appliances {id:'f6', title:'Πλυντήριο πιάτων', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesDishWasher)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesComputer:Appliances {id:'f7', title:'Επιτραπέζιος Υπολογιστής', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesComputer)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesTelevision:Appliances {id:'f8', title:'Τηλεόραση', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesTelevision)-[:BELONGS_TO]->(Fourtounakides)
+CREATE (FourtounakidesMicrowave:Appliances {id:'f9', title:'Φούρνος μικροκυμάτων', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (FourtounakidesMicrowave)-[:BELONGS_TO]->(Fourtounakides)
+
+CREATE (Diamantopouloi:Household {title:'Διαμαντόπουλοι', houseconstructionyear:1974, appliancesowned:49, type: 'Μονοκατοικία', numberofrooms:4, householdscore:1689})
+CREATE (GiorgosDiamantapoulos:Person {name:'Γιώργος Διαμαντόπουλος', born:1968, memberscore:250})
+CREATE (StellaAsteriadou:Person {name:'Στέλλα Αστεριάδου', born:1970, memberscore:350})
+CREATE (StaurosDiamantopoulos:Person {name:'Σταύρος Διαμαντόπουλος', born:1998, memberscore:300})
+CREATE (LinaDiamantopoulou:Person {name:'Λίνα Διαμαντοπούλου', born:2001, memberscore:200})
+CREATE
+	(GiorgosDiamantapoulos)-[:MEMBER_OF {roles:['Πατέρας']}]->(Diamantopouloi),
+	(StellaAsteriadou)-[:MEMBER_OF {roles:['Μητέρα']}]->(Diamantopouloi),
+	(StaurosDiamantopoulos)-[:MEMBER_OF {roles:['Γιός']}]->(Diamantopouloi),
+	(LinaDiamantopoulou)-[:MEMBER_OF {roles:['Κόρη']}]->(Diamantopouloi)
+	
+CREATE (DiamantopouloiFridge:Appliances {id:'d1', title:'Ψυγείο', manufacturer:'Άγνωστος', model:'Άγνωστο'})	
+CREATE (DiamantopouloiFridge)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiFreezer:Appliances {id:'d2', title:'Καταψύκτης', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiFreezer)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiTumble:Appliances {id:'d3', title:'Στεγνωτήριο', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiTumble)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiWashingMachine:Appliances {id:'d4', title:'Πλυντήριο ρούχων', manufacturer:'Άγνωστος', model:'Άγνωστο'})	
+CREATE (DiamantopouloiWashingMachine)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiDishWasher:Appliances {id:'d5', title:'Πλυντήριο πιάτων', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiDishWasher)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiComputer:Appliances {id:'d6', title:'Υπολογιστής', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiComputer)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiTelevision:Appliances {id:'d7', title:'Τηλεόραση', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiTelevision)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiMicrowave:Appliances {id:'d8', title:'Φούρνος μικροκυμάτων', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiMicrowave)-[:BELONGS_TO]->(Diamantopouloi)
+CREATE (DiamantopouloiKettle:Appliances {id:'d9', title:'Βραστήρας', manufacturer:'Άγνωστος', model:'Άγνωστο'})
+CREATE (DiamantopouloiKettle)-[:BELONGS_TO]->(Diamantopouloi)
+
+CREATE (Brontakides)-[:ISMEMBER_OF]->(Kritikoi)
+CREATE (Fourtounakides)-[:ISMEMBER_OF]->(Kritikoi)
+CREATE (Papadopouloi)-[:ISMEMBER_OF]->(Peloponisioi)
+CREATE (Diamantopouloi)-[:ISMEMBER_OF]->(Peloponisioi)
+CREATE (Peloponisioi)-[:COMPETE]->(Kritikoi)
+CREATE (GiorgosDiamantapoulos)-[:KNOWS]->(KostasPapadopoulos)
+CREATE (GeorgiaMauromixalaki)-[:KNOWS]->(MeropiAslanidou)
